@@ -58,6 +58,7 @@ ggbiplot <- function(pcobj, choices = 1:2, scale = 1, pc.biplot = TRUE,
   library(plyr)
   library(scales)
   library(grid)
+  library(ggrepel)
 
   stopifnot(length(choices) == 2)
 
@@ -168,8 +169,13 @@ ggbiplot <- function(pcobj, choices = 1:2, scale = 1, pc.biplot = TRUE,
   # Draw either labels or points
   if(!is.null(df.u$labels)) {
     if(!is.null(df.u$groups)) {
-      g <- g + geom_text(aes(label = labels, color = groups), 
-                         size = labels.size)
+      g <- g + geom_point(aes(xvar, yvar), color = "black", 
+                size = 2) + geom_text_repel(aes(xvar, yvar, color = groups, 
+                label = labels), size = 3, fontface = "bold", 
+                box.padding = unit(0.5, "lines"), point.padding = unit(1.6, 
+                  "lines"), segment.color = "#555555", segment.size = 0.5, 
+                arrow = arrow(length = unit(0.01, "npc")), force = 1, 
+                max.iter = 2000) + geom_point(aes(color=groups))
     } else {
       g <- g + geom_text(aes(label = labels), size = labels.size)      
     }

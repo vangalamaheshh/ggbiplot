@@ -44,5 +44,5 @@ ggscreeplot <- function(pcobj, type = c('pev', 'cev'))
 
   ggplot(data = df, aes(x = PC, y = yvar)) + 
     xlab('principal component number') + ylab(yvar.lab) +
-    geom_point() + geom_path()
+    geom_bar(stat="identity")
 }
