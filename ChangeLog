@@ -1,0 +1,6 @@
+July, 11, 2016:
+---------------
+- Edited to use ggrepel for labels
+- Edited to use geom_point(aes(color=groups)) - colors the points
+- Edited to use bar plot for pcascree
+
