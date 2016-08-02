@@ -1,3 +1,8 @@
+Aug, 2, 2016:
+--------------
+- Edited ggscreeplot function to use percentages on y-axis 
+- Limit Principal component number to min(10,length(df))
+
 July, 11, 2016:
 ---------------
 - Edited to use ggrepel for labels
