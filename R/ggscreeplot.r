@@ -29,7 +29,7 @@
 #'   print(ggscreeplot(wine.pca))
 #'
 
-function (pcobj, type = c("pev", "cev")) 
+ggscreeplot <- function (pcobj, type = c("pev", "cev")) 
 {
     type <- match.arg(type)
     d <- pcobj$sdev^2
